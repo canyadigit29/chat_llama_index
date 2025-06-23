@@ -12,6 +12,21 @@ type DemoBot = Omit<Bot, "session">;
 
 export const DEMO_BOTS: DemoBot[] = [
   {
+    id: "1",
+    avatar: "1f47e",
+    name: "MaxGPT",
+    botHello: "Hello! I'm MaxGPT. How can I assist you with your documents?",
+    context: [],
+    modelConfig: {
+      model: "gpt-4o-mini",
+      temperature: 0.5,
+      maxTokens: 4096,
+      sendMemory: false,
+    },
+    readOnly: false,
+    datasource: toLlamaCloudDataSource("MaxGPT"),
+  },
+  {
     id: "2",
     avatar: "1f916",
     name: "My Documents",

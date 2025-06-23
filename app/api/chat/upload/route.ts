@@ -28,9 +28,9 @@ export async function POST(request: NextRequest) {
     }
     return NextResponse.json(await uploadDocument(index, filename, base64));
   } catch (error) {
-    console.error("[Upload API]", error);
+    console.error("[Upload API] Detailed error:", error);
     return NextResponse.json(
-      { error: (error as Error).message },
+      { error: `${(error as Error).message} - Check if your index/pipeline exists in LlamaCloud` },
       { status: 500 },
     );
   }
