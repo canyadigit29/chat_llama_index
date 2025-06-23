@@ -45,23 +45,28 @@ function createParams({
   if (!pipeline) {
     throw new Error("Set pipeline in the params.");
   }
+  
+  // Hardcoded values from LlamaCloud dashboard
   const params = {
-    organizationId: process.env.LLAMA_CLOUD_ORGANIZATION_ID,
+    organizationId: "1d723a68-105e-42a6-8168-059e44f0383b",
     name: pipeline,
-    projectName: project ?? process.env.LLAMA_CLOUD_PROJECT_NAME!,
-    apiKey: process.env.LLAMA_CLOUD_API_KEY,
-    baseUrl: process.env.LLAMA_CLOUD_BASE_URL,
+    // Using "Default" project name as shown in screenshot
+    projectName: "Default",
+    apiKey: "llx-sbeDUf38rw5C2b3Xmu4JXceWGwqAa5NDtyWN0eMqQX2uffQZ",
+    baseUrl: "https://api.cloud.llamaindex.ai",
   };
+  
+  console.log("Using LlamaCloud params:", {
+    ...params,
+    apiKey: "REDACTED",
+    pipeline,
+  });
+  
   return params;
 }
 
 function checkEnvVars() {
-  if (
-    !process.env.LLAMA_CLOUD_PROJECT_NAME ||
-    !process.env.LLAMA_CLOUD_API_KEY
-  ) {
-    throw new Error(
-      "LLAMA_CLOUD_PROJECT_NAME and LLAMA_CLOUD_API_KEY environment variables must be set.",
-    );
-  }
+  // Skip environment variable check since we're hardcoding values
+  console.log("Skipping environment variable check - using hardcoded credentials");
+  return;
 }
