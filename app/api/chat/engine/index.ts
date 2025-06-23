@@ -47,11 +47,11 @@ function createParams({
   }
   
   // Hardcoded values from LlamaCloud dashboard
+  // Using exact parameter structure from the Python example, converted to camelCase as needed
   const params = {
+    name: pipeline, // This matches what the Python SDK expects
+    projectName: "Default", // This is directly from your screenshot
     organizationId: "1d723a68-105e-42a6-8168-059e44f0383b",
-    name: pipeline,
-    // Using "Default" project name as shown in screenshot
-    projectName: "Default",
     apiKey: "llx-sbeDUf38rw5C2b3Xmu4JXceWGwqAa5NDtyWN0eMqQX2uffQZ",
     baseUrl: "https://api.cloud.llamaindex.ai",
   };
