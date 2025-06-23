@@ -69,13 +69,18 @@ function createParams({
   }
   
   // CRITICAL FIX: Using exact parameter structure as needed by the LlamaCloudIndex constructor
-  // This matches the Python example you shared
+  // This includes debugging parameters to help track down the processing issue
   const params = {
     name: "MaxGPT", // Hardcoded to match your LlamaCloud index name exactly
     projectName: "Default", 
     organizationId: "1d723a68-105e-42a6-8168-059e44f0383b",
     apiKey: "llx-sbeDUf38rw5C2b3Xmu4JXceWGwqAa5NDtyWN0eMqQX2uffQZ",
     baseUrl: "https://api.cloud.llamaindex.ai",
+    // Additional parameters to help with debugging
+    requestTimeout: 10000, // 10 seconds timeout for API requests
+    uploadMaxRetries: 1,    // Reduce retries
+    debugMode: true,        // Enable debug mode if supported
+    skipProcessingChecks: true, // Skip waiting for processing if supported
   };
   
   console.log("Using LlamaCloud params:", {
