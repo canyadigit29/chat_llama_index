@@ -5,9 +5,10 @@
   "scripts": {
     "dev": "next dev",
     "create-llama": "bash scripts/create-llama.sh",
+    "vercel-create-llama": "bash scripts/vercel-create-llama.sh",
     "get-demo": "bash scripts/get-demo.sh",
     "generate-demo": "bash scripts/generate-demo.sh",
-    "build": "npm run create-llama && next build",
+    "build": "bash scripts/vercel-create-llama.sh && next build",
     "start": "next start",
     "lint": "next lint",
     "format:check": "prettier --check --ignore-path .gitignore app",
